@@ -1,3 +1,12 @@
+---
+import Navbar from '../components/Navbar.astro';
+import "../styles/global.css";
+import heroBg from '../assets/images/image 1.png';
+const {title} = Astro.props;
+import Footer from '../components/Footer.astro';
+---
+
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -6,18 +15,23 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<div class="page-wrapper">
+			<div class="hero-bg" style={`--hero-bg:url("${heroBg.src}")`}>
+		   <Navbar />
+		         <main>
+		         <slot name="hero" />
+		         </main>
+			</div>
+
+			<main>
+				<slot />
+			</main>
+		    <Footer />
+		</div>
 	</body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+

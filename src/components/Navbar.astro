@@ -1,0 +1,63 @@
+---
+import logo from '../assets/images/Mask group.svg';
+import MenuImage from '../assets/images/main-menu.png';
+const navLinks = [{
+  name: 'Home',
+  url: '/',
+  style: 'transparent'
+},
+{
+  name: 'About Us',
+  url: '#',
+  style: 'transparent'
+},
+{
+  name: 'Planters',
+  url: '#',
+  style: 'transparent'
+},
+{
+  name: 'Contact',
+  url: '#',
+  style: 'transparent'
+},
+]
+---
+
+<nav class="navbar">
+    <div class="padding-global ">
+        <div class="container-large">
+            <div class="nav_component">
+               <img src={logo.src} alt="Logo" class="nav_logo">
+               <div class="nav_menu-wrapper">
+                <button class="btn btn--menu" id="menu_btn" aria-expanded="false" aria-label = "Open mobile nav">
+                    <img src={MenuImage.src} alt="Menu" width="25px" />
+                </button>
+                <ul class="nav_links" role="navigation">
+               {navLinks.map(link =>(
+                <li role="none">
+                    <a href={link.url} class={`btn btn--${link.style} nav-link`}>  {link.name}</a>
+                  
+                </li>
+               ))}
+                </ul>
+                <a href="#" class="nav_button">Call Us</a>
+               </div>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+<script>
+const navBtn = document.querySelector('#menu_btn');
+const navLinks = document.querySelector('.nav_links');
+
+navBtn?.addEventListener('click',() => {
+  const isOpen = navBtn.getAttribute('aria-expanded') === 'true';
+
+navBtn.setAttribute('aria-expanded', String(!isOpen));
+navLinks?.classList.toggle('nav_links--open');
+})
+
+</script>
