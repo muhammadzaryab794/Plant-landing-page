@@ -950,6 +950,9 @@ input[type="email"]::placeholder {
     color: var(--text-white);
     font-family: var(--font-raleway);
 }
+.cta_contact-form input {
+  color: white;
+}
 
 .cta_heading{
     max-width: 30ch;
