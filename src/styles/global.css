@@ -1166,9 +1166,6 @@ input{
     align-items: center;
     justify-content: center;
   }
-  .footer_social-icon-wrapper{
-    flex-direction: column;
-  }
 
   .footer_bg2{
     top: 0;
